@@ -4,6 +4,7 @@ import org.hibernate.annotations.NaturalId;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -22,7 +23,7 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(cascade = CascadeType.ALL)
+   @OneToOne(cascade = CascadeType.ALL, optional = false)
    @PrimaryKeyJoinColumn
    private Car car;
 
@@ -72,6 +73,19 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      User user = (User) o;
+      return Objects.equals(id, user.id);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(id);
    }
 
    @Override

@@ -44,7 +44,7 @@ public class MainApp {
          System.out.println();
       }
 
-      System.out.println(userService.getUserByCar("PAZ",12));
+      System.out.println(userService.getUserByCar("GAZ",5));
 
       context.close();
    }
