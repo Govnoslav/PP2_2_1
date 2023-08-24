@@ -1,7 +1,5 @@
 package hiber.model;
 
-import org.hibernate.annotations.NaturalId;
-import org.springframework.jmx.export.annotation.ManagedOperation;
 
 import javax.persistence.*;
 import java.util.Objects;
